@@ -39,28 +39,22 @@ public class AppleAndOrange {
 			System.out.print("Enter the position of fallen apple #" + (index + 1) + ": ");
 			int a = s.nextInt();
 
-			appleCounter += (((appleTreePosition + a) >= houseBegin) ? 1 : 0);
-			/*
-			if (a >= 0) {
-				appleCounter += (((appleTreePosition + a) <= houseEnd) ? 1 : 0);
-			} else {
-				appleCounter += (((appleTreePosition + a) >= houseBegin) ? 1 : 0);
+			boolean boundaryFall = (((a + appleTreePosition) >= houseBegin) && ((a + appleTreePosition) <= houseEnd));
+			
+			if (boundaryFall) {
+				appleCounter += 1;
 			}
-			*/
 		}
 
 		for (index = 0; index < fallenOranges; index += 1) {
 			System.out.print("Enter the position of fallen orange #" + (index + 1) + ": ");
 			int b = s.nextInt();
 
-			orangeCounter += (((orangeTreePosition + b) <= houseEnd) ? 1 : 0);
-			/*
-			if (b >= 0) {
-				orangeCounter += (((orangeTreePosition + b) <= houseEnd) ? 1 : 0);
-			} else {
-				orangeCounter += (((orangeTreePosition + b) >= houseBegin) ? 1 : 0);
+			boolean boundaryFall = (((b + orangeTreePosition) <= houseEnd) && ((b + orangeTreePosition) >= houseBegin));
+			
+			if (boundaryFall) {
+				orangeCounter += 1;
 			}
-			*/
 		}
 
 		System.out.println("Apple counter: " + appleCounter + "\nOrange counter: " + orangeCounter);
